@@ -1,0 +1,124 @@
+{
+    "reviews": [
+      {
+        "professor": "Dr. Jane Smith",
+        "course": "Introduction to Computer Science",
+        "rating": 5,
+        "reviews": "Dr. Smith is an outstanding instructor. Her lectures are clear, engaging, and she always takes time to answer questions."
+      },
+      {
+        "professor": "Dr. Michael Johnson",
+        "course": "Advanced Physics",
+        "rating": 2,
+        "reviews": "Dr. Johnson seems knowledgeable but is terrible at explaining concepts. His exams are impossibly difficult and don't reflect the lectures."
+      },
+      {
+        "professor": "Dr. Emily Brown",
+        "course": "Organic Chemistry",
+        "rating": 3,
+        "reviews": "Dr. Brown knows her subject well, but can be disorganized at times. Labs are interesting but lectures can be dry."
+      },
+      {
+        "professor": "Dr. David Lee",
+        "course": "World History",
+        "rating": 1,
+        "reviews": "Avoid Dr. Lee's class if possible. He's often unprepared, lectures are rambling, and grading seems arbitrary."
+      },
+      {
+        "professor": "Dr. Sarah Miller",
+        "course": "Calculus II",
+        "rating": 4,
+        "reviews": "Dr. Miller is very knowledgeable and patient. She provides great examples, though some concepts could use more explanation."
+      },
+      {
+        "professor": "Prof. Robert Chen",
+        "course": "Artificial Intelligence",
+        "rating": 5,
+        "reviews": "Prof. Chen is at the cutting edge of AI. His course is challenging but incredibly rewarding. Great balance of theory and practical applications."
+      },
+      {
+        "professor": "Dr. Lisa Taylor",
+        "course": "Introduction to Psychology",
+        "rating": 2,
+        "reviews": "Dr. Taylor's course is a disappointment. Lectures are boring, and the textbook does a better job explaining concepts than she does."
+      },
+      {
+        "professor": "Prof. James Wilson",
+        "course": "Financial Accounting",
+        "rating": 3,
+        "reviews": "Prof. Wilson knows his stuff, but his teaching style is very dry. It's hard to stay engaged during lectures."
+      },
+      {
+        "professor": "Dr. Maria Garcia",
+        "course": "Spanish Literature",
+        "rating": 5,
+        "reviews": "Dr. Garcia's passion for literature is infectious. She creates a welcoming classroom environment and encourages thoughtful discussion."
+      },
+      {
+        "professor": "Prof. Thomas Brown",
+        "course": "Constitutional Law",
+        "rating": 1,
+        "reviews": "Prof. Brown is condescending and often belittles students who ask questions. His political bias is obvious and affects grading."
+      },
+      {
+        "professor": "Dr. Rachel Green",
+        "course": "Environmental Science",
+        "rating": 4,
+        "reviews": "Dr. Green's course is informative, but the workload is excessive. Be prepared for numerous projects and long lab reports."
+      },
+      {
+        "professor": "Prof. Kevin Nguyen",
+        "course": "Data Structures",
+        "rating": 2,
+        "reviews": "Prof. Nguyen's lectures are confusing and his coding examples often have errors. Office hours are unhelpful as he seems impatient."
+      },
+      {
+        "professor": "Dr. Olivia Martinez",
+        "course": "Human Anatomy",
+        "rating": 3,
+        "reviews": "Dr. Martinez is knowledgeable, but her exams are extremely difficult and don't always reflect the material covered in class."
+      },
+      {
+        "professor": "Prof. William Turner",
+        "course": "Modern Art History",
+        "rating": 5,
+        "reviews": "Prof. Turner's enthusiasm for art is contagious. His lectures are like storytelling sessions, making complex art movements accessible."
+      },
+      {
+        "professor": "Dr. Sophia Lee",
+        "course": "Quantum Mechanics",
+        "rating": 1,
+        "reviews": "Dr. Lee seems to actively dislike teaching. She's impatient with questions and her explanations are often more confusing than the textbook."
+      },
+      {
+        "professor": "Prof. Daniel White",
+        "course": "Macroeconomics",
+        "rating": 3,
+        "reviews": "Prof. White's lectures can be monotonous, but the content is solid. More real-world applications would improve the course."
+      },
+      {
+        "professor": "Dr. Emma Clark",
+        "course": "Molecular Biology",
+        "rating": 5,
+        "reviews": "Dr. Clark is an excellent teacher. She explains complex biological processes clearly and her lab sessions are well-organized."
+      },
+      {
+        "professor": "Prof. Alexander Kim",
+        "course": "Linear Algebra",
+        "rating": 2,
+        "reviews": "Prof. Kim's teaching style is confusing. He jumps between topics randomly and gets frustrated when students ask for clarification."
+      },
+      {
+        "professor": "Dr. Natalie Wong",
+        "course": "Cognitive Psychology",
+        "rating": 4,
+        "reviews": "Dr. Wong's course is fascinating, but her grading can be harsh. Be prepared for tough essays and strict formatting requirements."
+      },
+      {
+        "professor": "Prof. Christopher Davis",
+        "course": "International Relations",
+        "rating": 3,
+        "reviews": "Prof. Davis knows his subject well, but tends to go off on tangents. Lectures can be interesting but often not relevant to exams."
+      }
+    ]
+  }
