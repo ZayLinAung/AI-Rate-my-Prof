@@ -64,7 +64,7 @@ For each query, structure your response as follows:
    Department: [Department Name]
    Expertise: [List 2-3 key areas]
    Notable Courses: [List 1-2 relevant courses]
-   Teaching Style: [Brief description]
+   Teaching Style: [Make up a brief description based on the review]
    Student Rating: [X.X/5.0 if available]
    Highlight: [One standout feature or achievement]"
 
@@ -85,75 +85,78 @@ Remember to adjust your language and tone to be appropriate for student interact
 `;
 
 export async function POST(req) {
-  const data = await req.json();
-  const pc = new Pinecone({
-    apiKey: process.env.PINECONE_API_KEY,
-  });
-  const index = pc.index("rateprof").namespace("test1");
-  const text = data[data.length - 1].content;
-  const embedding = await embedModel.embedContent(text);
+   const data = await req.json();
+   const pc = new Pinecone({
+      apiKey: process.env.PINECONE_API_KEY,
+   });
+   const index = pc.index("rateprof").namespace("test1");
+   const text = data[data.length - 1].content;
+   const embedding = await embedModel.embedContent(text);
 
-  const results = await index.query({
-    topK: 5,
-    includeMetadata: true,
-    vector: embedding.embedding.values,
-  });
+   const results = await index.query({
+      topK: 3,
+      includeMetadata: true,
+      vector: embedding.embedding.values,
+   });
 
-  let resultString = "Returned results from vector db (done automatically)";
-  results.matches.forEach((match) => {
-    resultString += `
+
+   let resultString = "Returned results from vector db (done automatically)";
+   results.matches.forEach((match) => {
+      resultString += `
   Returned Results:
   Professor: ${match.id}
+  Department: ${match.metadata.department}
   Review: ${match.metadata.review}
   Subject: ${match.metadata.subject}
   Stars: ${match.metadata.stars}
   \n\n`;
-  });
+   });
 
-  const lastMessage = data[data.length - 1];
-  const lastMessageContent = lastMessage.content + resultString;
-  const lastDataWithoutLastMessage = data.slice(0, data.length - 1);
 
-  const result = await model.generateContentStream({
-   contents: [
-     {
-       role: 'model',
-       parts: [
+   const lastMessage = data[data.length - 1];
+   const lastMessageContent = lastMessage.content + resultString;
+   const lastDataWithoutLastMessage = data.slice(0, data.length - 1);
+
+   const result = await model.generateContentStream({
+      contents: [
          {
-           text: systemPrompt,
-         }
-       ],
-     },
-     ...lastDataWithoutLastMessage,
-     {
-         role: 'user',
-         parts: [
-            {
-            text: lastMessageContent,
-            }
-         ],
-      },
-   ],
- });
+            role: 'model',
+            parts: [
+               {
+                  text: systemPrompt,
+               }
+            ],
+         },
+         ...lastDataWithoutLastMessage,
+         {
+            role: 'user',
+            parts: [
+               {
+                  text: lastMessageContent,
+               }
+            ],
+         },
+      ],
+   });
 
- const stream = new ReadableStream({
-   async start(controller) {
-     const encoder = new TextEncoder()
-     try {
-       for await (const chunk of result.stream) {
-         const content = chunk.text()
-         if (content) {
-           const text = encoder.encode(content)
-           controller.enqueue(text)
+   const stream = new ReadableStream({
+      async start(controller) {
+         const encoder = new TextEncoder()
+         try {
+            for await (const chunk of result.stream) {
+               const content = chunk.text()
+               if (content) {
+                  const text = encoder.encode(content)
+                  controller.enqueue(text)
+               }
+            }
+         } catch (err) {
+            controller.error(err)
+         } finally {
+            controller.close()
          }
-       }
-     } catch (err) {
-       controller.error(err)
-     } finally {
-       controller.close()
-     }
-   },
- })
- return new NextResponse(stream)
- 
+      },
+   })
+   return new NextResponse(stream)
+
 }
