@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils'
 import { IconSpinner, IconGemini } from "@/components/ui/icons";
 import { PromptForm } from "@/components/PromptForm";
 import Professor from "../public/professor.png"
-export function TypographyH1() {
+function TypographyH1() {
   return (
     <div className="flex flex-col sm:flex-row justify-center items-center mt-5 px-4 sm:px-0">
       <Image
